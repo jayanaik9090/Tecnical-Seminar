@@ -1,0 +1,253 @@
+what is Image Steganography?
+
+
+ - I guess most of u have heard about Cryptography which is used to hide or protect the data during its transfer.
+
+ - Steganography is similar kind, where both Cryptography and steganography methods r used to hide or protect the secret data.
+
+ - However, they differ, with respect to crytography, it makes the data unreadable or hides the meaning of the data.
+
+ - while steganography hides the existence of the data.
+
+ - Steganography is a method of hiding secret data, by embedding it into an audio, video, image or text file.
+
+ - So Hiding the data, by embedding it into an image is known as Image Steganography.
+
+
+----------------------------------------------------------------------------------------------------------
+
+----> IN PPT ( NEED )<----
+
+
+
+
+objectives
+
+
+concentrated on the data security issues when sending the data over the network using steganographic techniques.
+
+The main objectives  are• Requirement of this steganography system is that the hider messagecarried by stego-media 
+
+the proposed approach finds the suitable algorithm forembedding the data in an image using steganography which provides thebetter security pattern for sending messages through a network
+----------------------------------------------------------------------------------------------------------
+
+
+TRADITIONAL IMAGE STEGANOGRAPHY :
+
+ - Most common and popular method of steganography is to make use of  LSB( Least Significant Bit) algorithm.
+
+ - LSB (Least Significant Bit) substitution is the process of adjusting the least
+significant bit pixels of the carrier image.
+
+ LSB (Least Significant Bit) substitution is the process of adjusting the leastsignificant bit pixels of the carrier image.• It is a simple approach for embedding message into the image.•
+
+ - It is a simple approach for embedding message into the image.
+
+ - The Least Significant Bit insertion varies according to number of bits in an image.
+
+ - For an 8 bit image, the least significant bit i.e., the 8th bit of each byte of the image is changed to the bit of secret message.
+ 
+ - For 24 bit image, the colors of each component like RGB (red, green and blue) are changed. 
+
+ - LSB is effective in using BMP images since the compression in BMP is lossless.
+
+
+This type ofsteganography uses a cover image in which data is to be embedded,personal information to be transmitted, and encryption decryption algorithmsto embed the message into image.
+
+-------------------------------------------------------------------------------------------------------
+
+ --- in this we are changing all the 8th bit of each rgb image.
+
+ - Now, let us see how to add secret message to this image or matrix
+
+--------------------------------------------------------------------------------------------------------
+
+
+ - in this LSB ENCODING Algorithm.   Here
+
+
+How LSB WorksStructure of text file:Any text file consists of streams of characters , each character is 1 byte(ASCII code) each byte as all of us of course know consists of 8 bits .
+
+
+ - counter is used to check whether all the secrect message are included in the image
+
+ - XOR is done between the LSB of red image and 1 bit from the message
+
+ - if 1, Replace LSB from Green image to 1 bit from hidden message
+
+ - if 0, Replace LSB from Blue image to 1 bit from hidden message
+
+ - and lastly to check whether all the secret message is read
+
+ - output will be stego image matrix
+
+
+----------------------------------------------------------------------------------------------------------
+
+ - in this LSB DECODING algorithm. its similar to Encoding
+
+ - counter is used to check whether all the secrect message are read from the image
+
+ - XOR is done between the LSB of red image and 1 bit from the message
+
+ - if 1, Pick LSB from Green matrix and store it in array
+
+ - if 0, Pick and store from Blue matrix
+ 
+ - check whether all the message bits are read
+
+ - output file is array of secret message
+
+
+----------------------------------------------------------------------------------------------------------
+
+ -----> In PPT ( Failures that occurred ) X2 <-----
+
+
+Exploding gradients are a problem where large error gradients accumulate
+
+oblem, enhance feature propagation, a large number of features are multiplexed, .
+
+
+traditional steganography based on carrier modification has
+the low steganographic capacity, a steganographic scheme based on Fully Convolutional Dense Connection
+Network (FC-DenseNet) is proposed.
+
+----> evolution <-----
+
+FC-DenseNet can effectively overcome the problems of gradient
+dissipation and gradient explosion, and a large number of features are multiplexed, and can effectively reduce the parameters of the model
+
+
+DenseNet is not only used for the classification of data but
+also for the super-resolution of images and image segmentation.
+
+proposed solution not only improves steganographic capacity
+but also has a high Peak Signal to Noise Ratio (PSNR) 
+and the Structural Similarity Index (SSIM) 
+----------------------------------------------------------------------------------------------------------
+
+ ---In FIGURE 1:
+	we can see 1st column is Carrier and Secret Images
+	and in next column we can see ENCODED Stego-image
+	and in next we can see Extracted image
+	and last column is of error detected , by seeing the enhanced image we can say that steganographic capacity is good for this method
+
+
+----------------------------------------------------------------------------------------------------------
+
+ 
+APPLICATION AND DEVELOPMENT OF FC-DenseNet :
+
+
+ - FC-DenseNet is mainly used for semantic segmentation, according to the label in the previous figure, it can segment the sky, tree, vehicle,  road, etc.
+
+ - The main process is to add a downsampling and upsampling function behind the Dense Block.
+
+ - The DOWNSAMPLING is a 2 × 2 convolution block used to extract the maximum value of the feature map to reduce the image and simplify the calculation.
+
+ - The UPSAMPLING is composed of a 3×3 transposed convolution, and the convolution kernel has a step size of 2 to compensate for the pooling operation. (( that is adding filter ))
+
+The most common steganography is to embed secret information into the Least Significant its(LSB) of natural images, LSB digit of the pixel is easily replaced by secret information, which is easy to produce visual artifacts.
+
+
+ -  Finally, the classification is done by 1×1 convolution and the number of categories.
+
+( Convolution achieve perfect data hiding  )
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+NETWORK ARCHITECTURE :
+
+
+ - Architecture mainly contains concatenation and an encoder (Hiding Network) and a decoder (Reveal Network)
+
+ - The encoder is mainly used to hide secret information and the decoder is mainly used to extract secret information.
+
+ - Main Goal is to train encoders and decoders at the same time to achieve perfect information hiding and extraction.
+
+----------------------------------------------------------------------------------------------------------
+
+ --- In FIGURE 3:
+
+ - both carrier and secret image get encoded.
+
+ - in ENCODER:
+
+ - ENCODER is basically a  concatenation operation.
+
+ - Encoder components include two 3×3 convolution, 11 Dense Block (DB), 10 Concatenation, 5 Transition Down (TD) and 5 Transition Up (TU).
+
+ (((((((((((((as we talked about DB( Dense Block ) : it containing downsampling and upsampling function ))))))))))))
+
+ - Transition Down  is mainly used to extract and integrate the features of secret images and carrier images.
+
+ - Transition Up is to gradually restore the characteristics of the input.
+ 
+ - The combination of error and Transition Up can restore the carrier image with high accuracy.
+
+
+ - DECODER :
+
+ - The DECODER components include 6 Conv with a convolution core of 3 × 3, 5 BN, 5 ReLU, and 1 Sigmoid. 
+
+ -  The goal of the Decoder is to decode the secret image from the stego-image
+
+
+Skip connections help the upsampling path recover.
+
+
+ (((((((((((  rectified linear unit (ReLU)  )))))))))))))
+
+ ((((((((((( SIGMOID:(methamatical formula) S(x)= 1/( 1+e^{-x} )= e^{x} / ( e^{x}+1 ).  )))))))))
+
+ ((((((((((( Batch normalization(BN) is technique of machine learning ))))))))))
+
+----------------------------------------------------------------------------------------------------------
+
+
+ --- In FIGURE 7: If we look at the histogram of carrier and Stego-image, we can see difference between them is not very large. 
+	This Shows that the solution for the designed will not destroy the visual integrity.
+
+
+----------------------------------------------------------------------------------------------------------
+
+
+ --- In FIGURE 10: 
+
+	To check the influence of image compression,  
+
+both the carrier image and stego-image is compressed in jpeg format.
+
+Then, it is varied using steganalysis tool. 
+
+The horizontal axis are the file that are not organized is judged as a
+steganographic file, and the vertical axis are organized file is judged as a steganographic file.
+	The red dashed line represents - random guessing
+	The green solid line represents the ROC drawn
+
+we can see that the performance of the steganalysis tool is slightly better than random guessing
+
+((((((((((  ROC curve (receiver operating characteristic curve)   )))))))))))))
+
+----------------------------------------------------------------------------------------------------------
+
+CONCLUSION:
+
+
+
+In the present world, the data transfers using internet is rapidly growingbecause it is so easier as well as faster to transfer the data to destination. So,many individuals and business people use to transfer business documents,important information using internet.• Security is an important issue while transferring the data.
+
+ - We use artificial intelligence to design the cost function instead of the cost function manually designed by STC coding. 
+
+ - Through the end-to-end training model, the full-size image is hidden and the image distortion is small.  
+
+ -it show that the method has advanced visual effects and high steganography capacity, and the model has strong generalization ability, which can achieve steganography and extraction of different data sets.
+
+
+
+(((((  space–time code (STC) is a method employed to improve the reliability of data transmission in wireless communication systems using multiple transmit antennas.   ))))))
+
+(((((((  COST FUNCTION measures the similarity between two images  ))))))))
